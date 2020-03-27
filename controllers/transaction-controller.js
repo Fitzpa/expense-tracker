@@ -3,7 +3,7 @@ const Transaction = require('../models/Transaction');
 // @desc Gets all transactions
 // @route GET /api/v1/transactions
 // @access Public
-exports.getTransactions = (req, res, next) => {
+exports.getTransactions = async (req, res, next) => {
   try {
     const transactions = await Transaction.find()
 
@@ -24,7 +24,7 @@ exports.getTransactions = (req, res, next) => {
 // @route POST /api/v1/transactions
 // @access Public
 exports.addTransaction = (req, res, next) => {
-  res.send('POST Transactions');
+  const { Text, amount } = req.body;
 };
 
 // @desc Delete transactions
